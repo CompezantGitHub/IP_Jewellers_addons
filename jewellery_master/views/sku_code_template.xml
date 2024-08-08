@@ -1,0 +1,39 @@
+<odoo>
+  <!--template id="product_test" inherit_id="website_sale.product" active="True" name="Discussion and Rating" priority="15">
+        <xpath expr="//div[@t-field='product.website_description']" position="after">
+            <section id="o_product_page_reviews" class="container pt32 pb32" data-anchor='true'>
+                    <a class="o_product_page_reviews_title d-flex justify-content-between text-decoration-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#o_product_page_reviews_content" aria-expanded="false" aria-controls="o_product_page_reviews_content">
+                        <h3 class="mb32">Customer Reviews</h3>
+                        <i class="fa align-self-start"/>
+                    </a>
+                    <div id="o_product_page_reviews_content" class="collapse">
+                        <t t-call="portal.message_thread">
+                            <t t-set="object" t-value="sku"/>
+                        </t>
+                    </div>
+            </section>
+        </xpath>
+    </template-->
+
+    <!-- Product options: OpenChatter -->
+    <template id="product_sku_code" inherit_id="website_sale.product" active="True" name="sku" priority="1">
+        <xpath expr="//t[@t-call='website_sale.product_price']" position="after">
+        <p t-if="product.sku">
+            <table>
+            <tr>
+                <td style="color:black;font-size:12px;">SKU Code - <span t-esc="product.sku"/></td>
+                <!--td>
+                <form id="comment" t-attf-action="" method="POST">
+                    <div class="media-body">
+                     <input name="blog_post_id" t-att-value="blog_post.id" type="hidden" placeholder="Area Pincode"/>
+                     <button type="submit" class="btn btn-primary mt8">Chack</button>
+                    </div>
+                        </div>
+                    </form>
+                </td-->
+            </tr>
+            </table>
+        </p>
+        </xpath>
+    </template>
+</odoo>

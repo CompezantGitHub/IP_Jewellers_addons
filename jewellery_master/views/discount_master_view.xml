@@ -1,0 +1,14 @@
+<odoo>
+  <data>
+     <record id="view_loyalty_reward_inherit" model="ir.ui.view">
+            <field name="name">loyalty.reward.inherit</field>
+            <field name="model">loyalty.reward</field>
+            <field name="inherit_id" ref="loyalty.loyalty_reward_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='reward_type_group']/*[1]" position="after">
+                    <field name="reward_on_item" string="Apply On"/>
+                </xpath>
+           </field>
+      </record>
+  </data>
+</odoo>

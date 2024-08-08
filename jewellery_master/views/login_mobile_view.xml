@@ -1,0 +1,12 @@
+<odoo>
+    <!-- Product options: OpenChatter -->
+    <template id="product_sku_code" inherit_id="website_sale.product" active="True" name="sku" priority="1">
+        <xpath expr="//t[@t-call='auth_signup.fields']" position="after">
+        <div class="mb-3 field-mnumber">
+                <label for="Mobile">Mobile Number</label>
+                <input type="number" name="mobile_number" t-att-value="mnumber" id="mnumber" class="form-control form-control-sm" autofocus="autofocus"
+                    required="required"/>
+        </div>
+        </xpath>
+    </template>
+</odoo>
