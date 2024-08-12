@@ -14,7 +14,7 @@
                                     <field name="metal_color"/>
                                     <field name="metal_pieces" string="Total Pcs"/>
                                     <field name="metal_weight" string="Metal weight(gms)"/>
-                                    <field name="multipier" string="Multipier"/>
+                                    <!--field name="multipier" string="Multipier"/-->
                                     <field name="stone_value_code"/>
                                     <field name="metal_cost_total" string="Total Cost" widget="monetary" />
                                     <field name="metal_net_weight" string="Net Weight(gms)" />

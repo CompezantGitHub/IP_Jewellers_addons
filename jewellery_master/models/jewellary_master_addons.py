@@ -36,7 +36,7 @@ class jewelleryAddons(models.Model):
         
         calculation=fields.Char(compute='_compute_total_metal',default=0,invisible=True)
         
-        multipier=fields.Integer(string="Multipier",default=55)
+        #multipier=fields.Integer(string="Multipier",compute='_compute_total_metal',default=55,readonly=True)
         stone_value_code=fields.Float('Stone Value Code',digits=(1,3),default=0)
     
         def action_set_cost_price(self):
@@ -143,9 +143,9 @@ class jewelleryAddons(models.Model):
 
                 #Multipier
                 multipier_code_value=self.env['purity.units'].search([('name','=','MULTIPIER')])
-                mul_code=55
+                mul_code=55.0
                 for i in multipier_code_value:
-                    mul_code=self.env['purity.units'].browse(i.id).rate
+                    mul_code=float(self.env['purity.units'].browse(i.id).unit)
                     break
                 
                 stone_code_multiple=mul_code*rec.stone_value_code
