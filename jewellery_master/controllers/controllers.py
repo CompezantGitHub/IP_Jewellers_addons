@@ -28,4 +28,9 @@ class WebsiteAuth(WebsiteSale):
     @http.route(['/shop/cart'], type='http', auth="user", website=True, sitemap=False)
     def cart(self, access_token=None, revive='', **post):
         return super(WebsiteAuth, self).cart(access_token=None, revive='', **post)
+    
+    @http.route('/web/send_otp', auth='public', type='json')
+    def web_send_otp(self, **kw):
+        return "Arya"
+        
         

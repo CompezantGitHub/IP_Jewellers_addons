@@ -87,8 +87,14 @@ class salesOrder(models.Model):
             line_discountable = line.price_unit * line.product_uom_qty * (1 - (line.discount or 0.0) / 100.0)
             if reward.reward_on_item == 'making_cost':
                 line_discountable=round((float(line.product_id.metal_rate)*float(line.product_id.metal_weight))*(round((line.product_id.making_cost)/100,2)),2)* line.product_uom_qty
-            if reward.reward_on_item == 'stone_value_code':
-                line_discountable=round((55*line.product_id.stone_value_code*line.product_uom_qty),2)
+            elif reward.reward_on_item == 'stone_value_code':
+                #Multipier
+                multipier_code_value=self.env['purity.units'].search([('name','=','MULTIPIER')])
+                mul_code=55.0
+                for i in multipier_code_value:
+                    mul_code=float(self.env['purity.units'].browse(i.id).unit)
+                    break
+                line_discountable=round((mul_code*line.product_id.stone_value_code*line.product_uom_qty),2)
             # line_discountable is the same as in a 'order' discount
             #  but first multiplied by a factor for the taxes to apply
             #  and then multiplied by another factor coming from the discountable

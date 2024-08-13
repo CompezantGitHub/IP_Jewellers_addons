@@ -31,6 +31,12 @@
     'demo': [
         'demo/demo.xml',
     ],
+    'assets': {
+        'web.assets_frontend': [
+            'jewellery_master/static/src/css/signup.css',
+            'jewellery_master/static/**/*',
+        ],
+    },
     'installable': True,
     'auto_install': False,
     'application': False,
