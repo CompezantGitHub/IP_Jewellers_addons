@@ -13,17 +13,18 @@ from odoo.tools.float_utils import float_is_zero, float_round
 
 
 class salesOrder(models.Model):
-    _inherit = 'sale.order'
+    _inherit = 'product.pricelist.item'
 
     #By Compezant
+    """
     def _discountable_specific(self, reward):
-        """
+    
         Special function to compute the discountable for 'specific' types of discount.
         The goal of this function is to make sure that applying a 5$ discount on an order with a
          5$ product and a 5% discount does not make the order go below 0.
 
         Returns the discountable and discountable_per_tax for a discount that only applies to specific products.
-        """
+        
         self.ensure_one()
         assert reward.discount_applicability == 'specific'
 
@@ -94,7 +95,7 @@ class salesOrder(models.Model):
                 for i in multipier_code_value:
                     mul_code=float(self.env['purity.units'].browse(i.id).unit)
                     break
-                line_discountable=round((mul_code*line.product_id.stone_value_code*line.product_uom_qty),2)
+                line_discountable=round((mul_code*line.product_id.stone_value_code),2)*line.product_uom_qty* (1 - (line.discount or 0.0) / 100.0)
             # line_discountable is the same as in a 'order' discount
             #  but first multiplied by a factor for the taxes to apply
             #  and then multiplied by another factor coming from the discountable
@@ -102,3 +103,4 @@ class salesOrder(models.Model):
             discountable_per_tax[taxes] += line_discountable *\
                 (remaining_amount_per_line[line] / line.price_total)
         return discountable, discountable_per_tax
+        """

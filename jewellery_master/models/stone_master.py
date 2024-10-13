@@ -6,7 +6,12 @@ class StoneMaster(models.Model):
     
     name=fields.Char("Stone Name",placeholder="e.g Diamond Rubi",required=True)
     rec_name=fields.Char(compute='_compute_rec_name')
- 
+    
+    @api.onchange('name')
+    def set_upper(self):    
+        self.name = str(self.name).upper()   
+        return
+        
     @api.model
     def _compute_rec_name(self):
         for rec in self:

@@ -14,7 +14,12 @@ class MetalMaster(models.Model):
     __sql_constraints = [
         ('name_uniq', 'unique (name,purity)','This metal is already there. pls change the rate')
     ]
- 
+    
+    @api.onchange('name')
+    def set_upper(self):    
+        self.name = str(self.name).upper()   
+        return
+        
     @api.model
     def _compute_rec_name(self):
         for rec in self:
