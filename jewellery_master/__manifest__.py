@@ -15,7 +15,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','sale','product','website_sale', 'website_sale_stock', 'website_sale_wishlist','website_sale_comparison','loyalty', 'sale_loyalty','website_payment', 'website_mail', 'portal_rating', 'digest', 'delivery'],
+    'depends': ['account','base','web','sale','product','website_sale', 'website_sale_stock', 'website_sale_wishlist','website_sale_comparison','loyalty', 'sale_loyalty','website_payment', 'website_mail', 'portal_rating', 'digest', 'delivery','website'],
 
     # always loaded
     'data': [
@@ -24,8 +24,10 @@
         'views/stone_master_views.xml',
         'views/metal_master_views.xml',
         'views/jewellery_master_view.xml',
-        'views/discount_master_view.xml',
-        'views/sku_code_template.xml'
+        'views/sku_code_template.xml',
+        'views/invoice_addons.xml',
+        'views/delivery_track.xml',
+        'views/my_invoice.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
@@ -34,7 +36,7 @@
     'assets': {
         'web.assets_frontend': [
             'jewellery_master/static/src/css/signup.css',
-            'jewellery_master/static/**/*',
+            'jewellery_master/static/src/js/signup.js',
         ],
     },
     'installable': True,
