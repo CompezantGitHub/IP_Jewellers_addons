@@ -13,13 +13,14 @@
                                     <field name="metal_rate" string="Today's Rate" widget="monetary"/>
                                     <field name="metal_color"/>
                                     <field name="metal_pieces" string="Total Pcs"/>
-                                    <field name="metal_weight" string="Metal weight(gms)"/>
+                                    <field name="metal_weight" string="Net weight(gms)"/>
                                     <!--field name="multipier" string="Multipier"/-->
                                     <field name="stone_value_code"/>
                                     <field name="metal_cost_total" string="Total Cost" widget="monetary" />
-                                    <field name="metal_net_weight" string="Net Weight(gms)" />
+                                    <field name="metal_net_weight" string="Gross Weight(gms)" />
                                     <field name="show_price" widget="boolean_toggle"/>
-                                    <field name="sku"/>
+                                    <field name="show_bis" widget="boolean_toggle"/>
+                                    <field name="sku" optional="show"/>
                                 </group>
                                 <group string="Stone Description" name="stone_description">
                                     <field name="stone_detail_ids" groups="sales_team.group_sale_salesman">
@@ -56,6 +57,7 @@
                                 </group>
                                 <group string="Cost Description" name="making_description">
                                     <field name="making_cost" string="Making % on Metal"/>
+                                    <field name="making_cost_per_gram" string="Making Code"/>
                                     <field name="calculation" string="Total Cost of Jewellary"/>
                                 </group>  
                             </group>
@@ -66,5 +68,14 @@
                 </xpath>
            </field>
       </record>
+      <!--record id="view_jewellary_master_inherit" model="ir.ui.view">
+            <field name="name">product.template.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='']" position="after">
+                </xpath>
+           </field>
+      </record-->
   </data>
 </odoo>

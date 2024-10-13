@@ -1,12 +1,13 @@
 <odoo>
   <data>
      <record id="view_loyalty_reward_inherit" model="ir.ui.view">
-            <field name="name">loyalty.reward.inherit</field>
-            <field name="model">loyalty.reward</field>
-            <field name="inherit_id" ref="loyalty.loyalty_reward_view_form"/>
+            <field name="name">product.pricelist.item.form.inherit</field>
+            <field name="model">product.pricelist.item</field>
+            <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
             <field name="arch" type="xml">
-                <xpath expr="//group[@name='reward_type_group']/*[1]" position="after">
-                    <field name="reward_on_item" string="Apply On"/>
+                <xpath expr="//field[@name='base']" position="after">
+                    <field name="on_making_cost" string="On Making Cost %" invisible="base != 'stone_price_making_cost'"/>
+                    <field name="on_stone_cost" string="On Stone Value %" invisible="base != 'stone_price_making_cost'"/>
                 </xpath>
            </field>
       </record>

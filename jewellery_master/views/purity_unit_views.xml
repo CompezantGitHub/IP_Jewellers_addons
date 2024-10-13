@@ -42,6 +42,6 @@
     <!-- Menu for call for price menu-->
     <menuitem id="price_unit_menu" name="Purity Units"
               groups="sales_team.group_sale_salesman"
-              parent="website_sale.menu_ecommerce_settings"
+              parent="website_sale.menu_orders"
               action="price_unit_action"/>
 </odoo>
